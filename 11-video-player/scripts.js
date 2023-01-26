@@ -57,5 +57,6 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+//When clicked down and outside of bar was moving on mouse back in
 progress.addEventListener('mouseout', () => mousedown = false);
 
