@@ -5,6 +5,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
+const fullscreenButton = document.querySelector('.fullscreen');
 
 function togglePlay() {
     //Version one
@@ -43,6 +44,13 @@ function handleProgress() {
 function scrub(e) {
     const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
     video.currentTime = scrubTime;
+};
+
+function fullscreen() {
+    // console.log("clicked")
+    // console.dir(video)
+    // console.log(video.videoHeight, video.videoWidth)
+    video.webkitRequestFullScreen();
 }
 
 video.addEventListener('click', togglePlay);
@@ -59,4 +67,5 @@ progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
 //When clicked down and outside of bar was moving on mouse back in
 progress.addEventListener('mouseout', () => mousedown = false);
+fullscreenButton.addEventListener('click', fullscreen);
 
