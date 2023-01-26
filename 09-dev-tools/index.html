@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Console Tricks!</title>
 </head>
+
 <body>
 
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
@@ -22,7 +24,7 @@
     // Interpolated
 
     // Styled
-
+    console.log("%c I am some text", "styles go here....font-seize 50px")
     // warning!
 
     // Error :|
@@ -30,17 +32,23 @@
     // Info
 
     // Testing
-
+    // console.asset() will only fire if true
     // clearing
 
     // Viewing DOM Elements
-
+    // console.dir() allow you to open the element in the console see methods and properties
     // Grouping together
-
+    console.group(`${dog.name}`);
+    // logs go here then end with same string
+    console.groupEnd(`${dog.name}`)
+    // console.groupCollapsed() shows collapsed view
     // counting
-
     // timing
-
+    console.time('fetchingdata');
+    // do fetch
+    console.timeEnd('fetchingdata')
+// log data
   </script>
 </body>
+
 </html>
