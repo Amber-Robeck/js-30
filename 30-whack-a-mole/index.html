@@ -48,7 +48,8 @@
       const index = Math.floor(Math.random() * holes.length);
       const hole = holes[index];
       if (hole === lastHole) {
-        console.log('Ah nah thats the same one bud');
+        // console.log('Ah nah thats the same one bud');
+        //recursive function return self if same hole
         return randomHole(holes);
       }
       lastHole = hole;
