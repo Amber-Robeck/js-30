@@ -43,17 +43,31 @@
     let scrollLeft;
 
 
-    slider.addEventListener('mousedown', () => {
-      console.log("down");
+    slider.addEventListener('mousedown', (e) => {
+      // console.log("down");
+      isDown = true;
+      slider.classList.add('active');
+      //minus offset for margin/padding
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
     });
     slider.addEventListener('mouseleave', () => {
-      console.log("leave");
+      // console.log("leave");
+      isDown = false;
+      slider.classList.remove('active');
     });
     slider.addEventListener('mouseup', () => {
-      console.log("up");
+      // console.log("up");
+      isDown = false;
+      slider.classList.remove('active');
     });
-    slider.addEventListener('mousemove', () => {
-      console.log("move");
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      // console.log("move");
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = x - startX;
+      slider.scrollLeft = scrollLeft - walk;
     });
   </script>
 
