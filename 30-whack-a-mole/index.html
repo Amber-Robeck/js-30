@@ -40,6 +40,7 @@
     const moles = document.querySelectorAll('.mole');
     let lastHole;
     let timeUp = false;
+    let score = 0;
 
     function randomTime(min, max) {
       return Math.round(Math.random() * (max - min) + min);
@@ -75,6 +76,16 @@
       peep();
       setTimeout(() => timeUp = true, 10000)
     };
+
+    function bonk(e) {
+      //make sure it's a click and not simulated
+      if (!e.isTrusted) return;
+      score++;
+      this.parentNode.classList.remove('up');
+      scoreBoard.textContent = score;
+    };
+
+    moles.forEach(mole => mole.addEventListener('click', bonk));
   </script>
 </body>
 
